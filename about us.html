@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ultraax | Premium Brand & Talent Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #3B82F6;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #020617;
+            --light: #F8FAFC;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Enhanced Background Animation */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatShape 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            filter: blur(40px);
+        }
+        
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+            filter: blur(50px);
+        }
+        
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: -10s;
+            filter: blur(45px);
+        }
+        
+        .geometric-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 40s infinite linear;
+            opacity: 0.3;
+        }
+        
+        .pulse-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            animation: pulseOrb 8s infinite ease-in-out;
+        }
+        
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            right: 20%;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 30%;
+            left: 25%;
+            animation-delay: -2s;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+        }
+        
+        .orb-3 {
+            width: 180px;
+            height: 180px;
+            top: 50%;
+            left: 70%;
+            animation-delay: -4s;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+        }
+        
+        .wave-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+        
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 100px;
+            background: var(--gradient);
+            animation: waveMove 25s infinite linear;
+            border-radius: 40%;
+        }
+        
+        .wave-1 {
+            top: 20%;
+            animation-delay: 0s;
+            opacity: 0.3;
+        }
+        
+        .wave-2 {
+            top: 50%;
+            animation-delay: -8s;
+            opacity: 0.2;
+        }
+        
+        .wave-3 {
+            top: 80%;
+            animation-delay: -16s;
+            opacity: 0.25;
+        }
+        
+        @keyframes floatShape {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(50px, -30px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translate(0, -60px) rotate(180deg) scale(1.2);
+            }
+            75% {
+                transform: translate(-50px, -30px) rotate(270deg) scale(1.1);
+            }
+        }
+        
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        @keyframes pulseOrb {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.1;
+            }
+        }
+        
+        @keyframes waveMove {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(0%) rotate(360deg);
+            }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+            transform: skewY(-5deg);
+            transform-origin: top left;
+        }
+        
+        .about-hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .about-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #CBD5E1;
+            font-weight: 300;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .mission-card {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.1;
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .mission-card:hover::before {
+            left: 0;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
+        }
+        
+        .mission-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .mission-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .mission-card p {
+            color: #CBD5E1;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 8rem 0;
+            background: rgba(15, 23, 42, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            color: #CBD5E1;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .team-member {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient);
+            opacity: 0;
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .team-member:hover::before {
+            opacity: 0.05;
+            transform: rotate(0deg);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            border: 3px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+        
+        .team-member:hover .member-avatar {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--primary);
+        }
+        
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .team-member .role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member p {
+            color: #CBD5E1;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 8rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .value-item {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .value-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            opacity: 0.1;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .value-item:hover::after {
+            height: 100%;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
+        }
+        
+        .value-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .value-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .value-item p {
+            color: #CBD5E1;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+            transform: skewY(-3deg);
+            transform-origin: top right;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #CBD5E1;
+            font-weight: 300;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(2, 6, 23, 0.9);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .footer-column ul {
+            list-style-type: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-column a {
+            color: #CBD5E1;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--glass);
+            color: var(--light);
+            transition: all 0.3s;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--glass-border);
+            color: #94A3B8;
+            font-weight: 300;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .about-hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .shape-1, .shape-2, .shape-3 {
+                transform: scale(0.8);
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .about-hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .shape-1, .shape-2, .shape-3 {
+                transform: scale(0.7);
+            }
+            
+            .mission-grid, .team-grid, .values-grid {
+                gap: 2rem;
+            }
+            
+            .mission-card, .team-member, .value-item {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(2, 6, 23, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.4s ease;
+                z-index: 999;
+                border-top: 1px solid var(--glass-border);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .about-hero {
+                min-height: 60vh;
+                padding-top: 100px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .mission, .team, .values, .cta-section {
+                padding: 5rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            
+            .mission-grid, .team-grid, .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .mission-card, .team-member, .value-item {
+                padding: 2rem;
+            }
+            
+            .mission-icon {
+                font-size: 2.5rem;
+            }
+            
+            .mission-card h3, .team-member h3, .value-item h3 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-content {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            .shape-1, .shape-2, .shape-3 {
+                transform: scale(0.5);
+            }
+            
+            .orb-1, .orb-2, .orb-3 {
+                transform: scale(0.7);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .mission-card, .team-member, .value-item {
+                padding: 1.5rem;
+            }
+            
+            .cta-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content p {
+                font-size: 1rem;
+            }
+            
+            .member-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+            
+            .value-number {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .mission-card h3, .team-member h3, .value-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Background Animation -->
+    <div class="animated-background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="geometric-grid"></div>
+        <div class="pulse-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="wave-lines">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    Ultraax
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="#mission">Our Mission</a>
+                    <a href="#team">Our Team</a>
+                    <a href="#values">Our Values</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <a href="https://wa.me/+917357098146?text=Hi%20Ultraax%2C%20I%20would%20like%20to%20book%20a%20consultation%20session%20to%20discuss%20my%20project%20needs." class="cta-button" target="_blank">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-bg"></div>
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>Our Story & Vision</h1>
+                <p>At Ultraax, we're redefining what's possible in digital brand management and talent development. Founded on the principles of innovation, excellence, and transformative growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To empower creators, influencers, and businesses with cutting-edge digital solutions that amplify their impact, accelerate their growth, and transform their digital presence into sustainable success stories.</p>
+                </div>
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the world's most trusted partner for digital transformation, where innovation meets execution, and where every client achieves unprecedented levels of digital excellence and market leadership.</p>
+                </div>
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Our Approach</h3>
+                    <p>We combine data-driven strategies with creative excellence, leveraging the latest technologies and industry insights to deliver results that exceed expectations and set new standards in digital excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Leadership</h2>
+                <p>The brilliant minds behind Ultraax's success and innovation</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member animate-left">
+                    <div class="member-avatar">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Mudit Dixit</h3>
+                    <div class="role">CEO & Founder</div>
+                    <p>Visionary leader with 10+ years in digital transformation and brand strategy. Passionate about empowering creators.</p>
+                </div>
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Karan </h3>
+                    <div class="role">Managing Director</div>
+                    <p>Growth marketing expert specializing in scaling digital presence and maximizing ROI for creators and brands.</p>
+                </div>
+                <div class="team-member animate-right">
+                    <div class="member-avatar">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Ajay Verma </h3>
+                    <div class="role">Marketing Head</div>
+                    <p>Award-winning creative director with expertise in visual storytelling and brand identity development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do at Ultraax</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item animate-left">
+                    <div class="value-number">01</div>
+                    <h3>Innovation First</h3>
+                    <p>We constantly push boundaries and embrace emerging technologies to deliver cutting-edge solutions that keep our clients ahead of the curve.</p>
+                </div>
+                <div class="value-item animate-on-scroll">
+                    <div class="value-number">02</div>
+                    <h3>Client Success</h3>
+                    <p>Your success is our success. We measure our achievements by the growth and satisfaction of every client we serve.</p>
+                </div>
+                <div class="value-item animate-right">
+                    <div class="value-number">03</div>
+                    <h3>Transparency</h3>
+                    <p>We believe in open communication, honest feedback, and clear processes that build trust and foster long-term partnerships.</p>
+                </div>
+                <div class="value-item animate-left">
+                    <div class="value-number">04</div>
+                    <h3>Excellence</h3>
+                    <p>We strive for perfection in every detail, delivering premium quality results that exceed expectations and set new standards.</p>
+                </div>
+                <div class="value-item animate-on-scroll">
+                    <div class="value-number">05</div>
+                    <h3>Collaboration</h3>
+                    <p>We work as partners with our clients, combining our expertise with your vision to create something truly extraordinary together.</p>
+                </div>
+                <div class="value-item animate-right">
+                    <div class="value-number">06</div>
+                    <h3>Adaptability</h3>
+                    <p>In a rapidly changing digital landscape, we remain agile and responsive, evolving our strategies to meet new challenges and opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Join the Ultraax family and experience the difference that premium digital solutions can make for your brand or talent career.</p>
+                <a href="https://wa.me/+917357098146?text=Hi%20Ultraax%2C%20I%20would%20like%20to%20book%20a%20consultation%20session%20to%20discuss%20my%20project%20needs." class="cta-button" target="_blank">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+917357098146?text=Hi%20Ultraax%2C%20I%20have%20a%20question%20about%20your%20services." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Ultraax</h3>
+                    <p>Comprehensive digital solutions for creators, influencers, and businesses.</p>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/@ultraaxofficial" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ultraax.co/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/ultraax_in" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/ultraax" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#values">Our Values</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@ultraax.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> New York, NY</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Ultraax. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+            }
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(2, 6, 23, 0.95)';
+                    header.style.backdropFilter = 'blur(20px)';
+                } else {
+                    header.style.background = 'rgba(2, 6, 23, 0.8)';
+                    header.style.backdropFilter = 'blur(20px)';
+                }
+            });
+            
+            // WhatsApp number update function
+            function updateWhatsAppNumber(phoneNumber) {
+                const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+                whatsappLinks.forEach(link => {
+                    const currentHref = link.getAttribute('href');
+                    const newHref = currentHref.replace(/wa\.me\/\d+/, `wa.me/${phoneNumber}`);
+                    link.setAttribute('href', newHref);
+                });
+            }
+            
+            // Add dynamic interaction with background elements
+            document.addEventListener('mousemove', function(e) {
+                const shapes = document.querySelectorAll('.shape');
+                const orbs = document.querySelectorAll('.orb');
+                
+                shapes.forEach(shape => {
+                    const speed = shape.classList.contains('shape-1') ? 0.02 : 
+                                 shape.classList.contains('shape-2') ? 0.015 : 0.01;
+                    const x = (window.innerWidth - e.pageX * speed) / 100;
+                    const y = (window.innerHeight - e.pageY * speed) / 100;
+                    shape.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                
+                orbs.forEach(orb => {
+                    const speed = orb.classList.contains('orb-1') ? 0.03 : 
+                                 orb.classList.contains('orb-2') ? 0.02 : 0.025;
+                    const x = (e.pageX * speed) / 100;
+                    const y = (e.pageY * speed) / 100;
+                    orb.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
