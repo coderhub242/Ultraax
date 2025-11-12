@@ -812,6 +812,7 @@
             }
         }
         
+        /* Tablet and Mobile Styles */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem 0;
@@ -823,6 +824,21 @@
             
             .mobile-menu-btn {
                 display: block;
+                width: 44px;
+                height: 44px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .navbar .cta-button {
+                display: none;
             }
             
             .hero {
@@ -910,6 +926,23 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            /* Improve touch targets for mobile */
+            .nav-links a, 
+            .mobile-nav-links a,
+            .footer-column a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Improve button sizing for mobile */
+            .cta-button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
         
         @media (max-width: 576px) {
@@ -938,6 +971,8 @@
             .cta-button {
                 width: 100%;
                 max-width: 280px;
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
             }
             
             .services-grid {
@@ -969,6 +1004,13 @@
                 right: 15px;
                 font-size: 24px;
             }
+            
+            /* Mobile menu button improvements */
+            .mobile-menu-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
         }
         
         @media (max-width: 400px) {
@@ -987,6 +1029,74 @@
             .service-icon {
                 font-size: 2.2rem;
             }
+            
+            .mobile-nav {
+                width: 250px;
+                padding: 90px 1.5rem 1.5rem;
+            }
+            
+            /* Further adjustments for very small screens */
+            .hero {
+                min-height: 80vh;
+                padding: 80px 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+            
+            /* Reduce padding on smaller screens */
+            .service-card,
+            .stat-item,
+            .cta-content {
+                padding: 1.5rem;
+            }
+            
+            /* Adjust font sizes for better readability */
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            /* Improve spacing on mobile */
+            .services {
+                padding: 3rem 0;
+            }
+            
+            .stats {
+                padding: 3rem 0;
+            }
+            
+            .cta-section {
+                padding: 3rem 0;
+            }
         }
         
         /* Particles Background */
@@ -995,6 +1105,56 @@
             width: 100%;
             height: 100%;
             z-index: -2;
+        }
+        
+        /* Desktop/Laptop specific improvements */
+        @media (min-width: 769px) {
+            /* Ensure desktop navigation is properly displayed */
+            .nav-links {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .navbar .cta-button {
+                display: inline-block;
+            }
+            
+            /* Restore original desktop padding and sizing */
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .service-icon {
+                font-size: 2.8rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .stat-item {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-content {
+                padding: 3rem 2rem;
+            }
+            
+            .hero {
+                padding: 100px 0 50px;
+                text-align: left;
+            }
+            
+            .hero-buttons {
+                justify-content: flex-start;
+            }
         }
     </style>
 </head>
@@ -1036,7 +1196,7 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-links">
             <a href="#services">Services</a>
-            <a href="#about us.html">About</a>
+            <a href="about us.html">About</a>
             <a href="#contact">Contact</a>
             <a href="https://wa.me/+917357098146?text=Hi%20Ultraax%2C%20I%20would%20like%20to%20book%20a%20consultation%20session%20to%20discuss%20my%20project%20needs." class="cta-button" target="_blank">Get Started</a>
         </div>
