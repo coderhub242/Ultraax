@@ -60,6 +60,126 @@
             padding: 0 15px;
         }
         
+        /* Coming Soon Popup Modal */
+        .coming-soon-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .coming-soon-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .coming-soon-content {
+            width: 90%;
+            max-width: 500px;
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+            text-align: center;
+        }
+        
+        .coming-soon-popup.active .coming-soon-content {
+            transform: scale(1);
+        }
+        
+        .coming-soon-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .coming-soon-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .coming-soon-content p {
+            color: #CBD5E1;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .coming-soon-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .coming-soon-email i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .coming-soon-email a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .coming-soon-email a:hover {
+            color: var(--primary);
+        }
+        
+        .close-popup {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .close-popup:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+        
         /* Image Popup Modal */
         .image-popup {
             position: fixed;
@@ -115,26 +235,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        
-        .close-popup {
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .close-popup:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(90deg);
         }
         
         .image-container {
@@ -645,6 +745,7 @@
             transition: color 0.3s;
             font-weight: 300;
             font-size: 0.95rem;
+            cursor: pointer;
         }
         
         .footer-column a:hover {
@@ -927,6 +1028,20 @@
                 align-items: center;
             }
             
+            /* Coming Soon Popup Mobile Styles */
+            .coming-soon-content {
+                width: 95%;
+                padding: 2rem;
+            }
+            
+            .coming-soon-icon {
+                font-size: 3.5rem;
+            }
+            
+            .coming-soon-content h3 {
+                font-size: 1.6rem;
+            }
+            
             /* Improve touch targets for mobile */
             .nav-links a, 
             .mobile-nav-links a,
@@ -1159,6 +1274,44 @@
     </style>
 </head>
 <body>
+    <!-- Coming Soon Popup for Our Team -->
+    <div class="coming-soon-popup" id="teamPopup">
+        <div class="coming-soon-content">
+            <button class="close-popup" id="closeTeamPopup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="coming-soon-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Our Team</h3>
+            <p>We're currently assembling our amazing team page to showcase the talented individuals behind Ultraax. This section will be available soon!</p>
+            <div class="coming-soon-email">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@ultraax.com">info@ultraax.com</a>
+            </div>
+            <p>In the meantime, feel free to reach out to us for any information about our team or services.</p>
+        </div>
+    </div>
+    
+    <!-- Coming Soon Popup for Case Studies -->
+    <div class="coming-soon-popup" id="caseStudiesPopup">
+        <div class="coming-soon-content">
+            <button class="close-popup" id="closeCaseStudiesPopup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="coming-soon-icon">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Case Studies</h3>
+            <p>We're working on compiling our most impactful case studies to showcase our successful projects and client results. This section will be live soon!</p>
+            <div class="coming-soon-email">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@ultraax.com">info@ultraax.com</a>
+            </div>
+            <p>For specific case study inquiries or to learn about our past work, please contact us directly.</p>
+        </div>
+    </div>
+    
     <!-- Image Popup Modal -->
     <div class="image-popup" id="imagePopup">
         <div class="image-popup-content">
@@ -1404,15 +1557,15 @@
                     <h3>Company</h3>
                     <ul>
                         <li><a href="about us.html">About Us</a></li>
-                        <li><a href="#about">Our Team</a></li>
-                        <li><a href="#about">Case Studies</a></li>
+                        <li><a href="#" id="teamLink">Our Team</a></li>
+                        <li><a href="#" id="caseStudiesLink">Case Studies</a></li>
                         <li><a href="mailto:careers@ultraax.com?subject=Career Inquiry&body=Hello Ultraax Team,%0D%0A%0D%0AI am interested in career opportunities at Ultraax. Please provide me with more information about available positions and the application process.%0D%0A%0D%0AThank you.">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> hello@ultraax.com</li>
+                        <li><i class="fas fa-envelope"></i> support@ultraax.com</li>
                         <li><i class="fas fa-phone"></i> +91 7357098146</li>
                         <li><i class="fas fa-map-marker-alt"></i> New Delhi, IN</li>
                     </ul>
@@ -1460,6 +1613,57 @@
                     }
                 },
                 retina_detect: true
+            });
+            
+            // Coming Soon Popup Functionality
+            const teamPopup = document.getElementById('teamPopup');
+            const caseStudiesPopup = document.getElementById('caseStudiesPopup');
+            const closeTeamPopup = document.getElementById('closeTeamPopup');
+            const closeCaseStudiesPopup = document.getElementById('closeCaseStudiesPopup');
+            const teamLink = document.getElementById('teamLink');
+            const caseStudiesLink = document.getElementById('caseStudiesLink');
+            
+            // Open Team Popup
+            teamLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                teamPopup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Open Case Studies Popup
+            caseStudiesLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                caseStudiesPopup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close Team Popup
+            function closeTeamPopupFunc() {
+                teamPopup.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            closeTeamPopup.addEventListener('click', closeTeamPopupFunc);
+            
+            // Close Case Studies Popup
+            function closeCaseStudiesPopupFunc() {
+                caseStudiesPopup.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            closeCaseStudiesPopup.addEventListener('click', closeCaseStudiesPopupFunc);
+            
+            // Close popups when clicking outside the content
+            teamPopup.addEventListener('click', function(e) {
+                if (e.target === teamPopup) {
+                    closeTeamPopupFunc();
+                }
+            });
+            
+            caseStudiesPopup.addEventListener('click', function(e) {
+                if (e.target === caseStudiesPopup) {
+                    closeCaseStudiesPopupFunc();
+                }
             });
             
             // Image Popup Functionality
