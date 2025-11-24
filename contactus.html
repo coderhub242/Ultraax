@@ -1392,221 +1392,209 @@
         </div>
     </footer>
 
-    <script>
-        // Initialize EmailJS (You'll need to replace with your actual EmailJS credentials)
-        (function() {
-            // Replace these with your actual EmailJS credentials
-            const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
-            const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
-            const EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
-            
-            // Initialize EmailJS with your public key
-            if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-            }
-        })();
+<script>
+    // Initialize EmailJS with your actual credentials
+    (function() {
+        // Your actual EmailJS credentials
+        const EMAILJS_PUBLIC_KEY = 'dLJFrD48PXMOYBZT0';
+        const EMAILJS_SERVICE_ID = 'service_0dd1h5r';
+        const EMAILJS_TEMPLATE_ID = 'template_0kbpkvf';
         
-        // Enhanced scroll animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            // Create connection nodes and lines
-            createConnectionNetwork();
-            
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('overlay');
-            
-            function toggleMobileMenu() {
-                mobileNav.classList.toggle('active');
-                overlay.classList.toggle('active');
-                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-            }
-            
-            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-            overlay.addEventListener('click', toggleMobileMenu);
-            
-            // Close mobile menu when clicking on links
-            const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', toggleMobileMenu);
-            });
-            
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(2, 6, 23, 0.95)';
-                    header.style.backdropFilter = 'blur(20px)';
-                } else {
-                    header.style.background = 'rgba(2, 6, 23, 0.8)';
-                    header.style.backdropFilter = 'blur(20px)';
+        // Initialize EmailJS with your public key
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        
+        // Make these variables globally available for the form submission
+        window.EMAILJS_SERVICE_ID = EMAILJS_SERVICE_ID;
+        window.EMAILJS_TEMPLATE_ID = EMAILJS_TEMPLATE_ID;
+    })();
+    
+    // Enhanced scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-            
-            // Contact form submission
-            const contactForm = document.getElementById('contactForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const formMessage = document.getElementById('formMessage');
-            
-            contactForm.addEventListener('submit', function(e) {
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Create connection nodes and lines
+        createConnectionNetwork();
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                // Show loading state
-                submitText.style.display = 'none';
-                submitSpinner.style.display = 'block';
-                submitBtn.disabled = true;
-                formMessage.style.display = 'none';
-                
-                // Get form data
-                const formData = new FormData(contactForm);
-                const data = {
-                    name: formData.get('name'),
-                    phone: formData.get('phone'),
-                    subject: formData.get('subject'),
-                    message: formData.get('message')
-                };
-                
-                // For demo purposes - in production, use EmailJS
-                setTimeout(() => {
-                    // Simulate API call delay
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(2, 6, 23, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(2, 6, 23, 0.8)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitSpinner = document.getElementById('submitSpinner');
+        const formMessage = document.getElementById('formMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitText.style.display = 'none';
+            submitSpinner.style.display = 'block';
+            submitBtn.disabled = true;
+            formMessage.style.display = 'none';
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                to_email: 'hello@ultraax.com'
+            };
+            
+            // Use EmailJS to send the email
+            emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, data)
+                .then(function(response) {
                     showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
                     contactForm.reset();
-                    
+                }, function(error) {
+                    console.error('EmailJS Error:', error);
+                    showFormMessage('Sorry, there was an error sending your message. Please try again later or contact us directly.', 'error');
+                })
+                .finally(function() {
                     // Reset button state
                     submitText.style.display = 'block';
                     submitSpinner.style.display = 'none';
                     submitBtn.disabled = false;
-                }, 2000);
-                
-                // In production, use this code with your EmailJS credentials:
-                /*
-                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
-                    .then(function(response) {
-                        showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
-                        contactForm.reset();
-                    }, function(error) {
-                        showFormMessage('Sorry, there was an error sending your message. Please try again later.', 'error');
-                    })
-                    .finally(function() {
-                        // Reset button state
-                        submitText.style.display = 'block';
-                        submitSpinner.style.display = 'none';
-                        submitBtn.disabled = false;
-                    });
-                */
-            });
+                });
+        });
+        
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
             
-            function showFormMessage(message, type) {
-                formMessage.textContent = message;
-                formMessage.className = `form-message ${type}`;
-                formMessage.style.display = 'block';
+            // Auto-hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Create connection network animation
+        function createConnectionNetwork() {
+            const container = document.getElementById('connectionsContainer');
+            const nodeCount = 15;
+            const nodes = [];
+            
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'connection-node';
                 
-                // Auto-hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const delay = Math.random() * 4;
+                
+                node.style.left = `${left}%`;
+                node.style.top = `${top}%`;
+                node.style.animationDelay = `-${delay}s`;
+                
+                container.appendChild(node);
+                nodes.push({ element: node, x: left, y: top });
             }
             
-            // Create connection network animation
-            function createConnectionNetwork() {
-                const container = document.getElementById('connectionsContainer');
-                const nodeCount = 15;
-                const nodes = [];
-                
-                // Create nodes
-                for (let i = 0; i < nodeCount; i++) {
-                    const node = document.createElement('div');
-                    node.className = 'connection-node';
+            // Create connections between nearby nodes
+            nodes.forEach((node, index) => {
+                for (let i = index + 1; i < nodes.length; i++) {
+                    const otherNode = nodes[i];
+                    const distance = Math.sqrt(
+                        Math.pow(node.x - otherNode.x, 2) + 
+                        Math.pow(node.y - otherNode.y, 2)
+                    );
                     
-                    // Random position
-                    const left = Math.random() * 100;
-                    const top = Math.random() * 100;
-                    const delay = Math.random() * 4;
-                    
-                    node.style.left = `${left}%`;
-                    node.style.top = `${top}%`;
-                    node.style.animationDelay = `-${delay}s`;
-                    
-                    container.appendChild(node);
-                    nodes.push({ element: node, x: left, y: top });
-                }
-                
-                // Create connections between nearby nodes
-                nodes.forEach((node, index) => {
-                    for (let i = index + 1; i < nodes.length; i++) {
-                        const otherNode = nodes[i];
-                        const distance = Math.sqrt(
-                            Math.pow(node.x - otherNode.x, 2) + 
-                            Math.pow(node.y - otherNode.y, 2)
-                        );
+                    // Only connect nodes that are close enough
+                    if (distance < 30) {
+                        const line = document.createElement('div');
+                        line.className = 'connection-line';
                         
-                        // Only connect nodes that are close enough
-                        if (distance < 30) {
-                            const line = document.createElement('div');
-                            line.className = 'connection-line';
-                            
-                            // Calculate line properties
-                            const angle = Math.atan2(otherNode.y - node.y, otherNode.x - node.x) * 180 / Math.PI;
-                            const length = distance;
-                            
-                            line.style.width = `${length}%`;
-                            line.style.left = `${node.x}%`;
-                            line.style.top = `${node.y}%`;
-                            line.style.transform = `rotate(${angle}deg)`;
-                            line.style.opacity = `${0.3 - (distance / 100)}`;
-                            
-                            container.appendChild(line);
-                        }
+                        // Calculate line properties
+                        const angle = Math.atan2(otherNode.y - node.y, otherNode.x - node.x) * 180 / Math.PI;
+                        const length = distance;
+                        
+                        line.style.width = `${length}%`;
+                        line.style.left = `${node.x}%`;
+                        line.style.top = `${node.y}%`;
+                        line.style.transform = `rotate(${angle}deg)`;
+                        line.style.opacity = `${0.3 - (distance / 100)}`;
+                        
+                        container.appendChild(line);
                     }
-                });
-            }
+                }
+            });
+        }
+        
+        // Add dynamic interaction with background elements
+        document.addEventListener('mousemove', function(e) {
+            const morphShapes = document.querySelectorAll('.morph-shape');
             
-            // Add dynamic interaction with background elements
-            document.addEventListener('mousemove', function(e) {
-                const morphShapes = document.querySelectorAll('.morph-shape');
-                
-                morphShapes.forEach(shape => {
-                    const speed = shape.classList.contains('morph-shape-1') ? 0.01 : 
-                                 shape.classList.contains('morph-shape-2') ? 0.008 : 0.012;
-                    const x = (window.innerWidth - e.pageX * speed) / 100;
-                    const y = (window.innerHeight - e.pageY * speed) / 100;
-                    shape.style.transform = `translate(${x}px, ${y}px)`;
-                });
+            morphShapes.forEach(shape => {
+                const speed = shape.classList.contains('morph-shape-1') ? 0.01 : 
+                             shape.classList.contains('morph-shape-2') ? 0.008 : 0.012;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                shape.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
-    </script>
-</body>
-</html>
+    });
+</script>
